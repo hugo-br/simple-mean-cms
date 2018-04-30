@@ -1,0 +1,10 @@
+#content {
+	width: 100%;
+	display: block;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container-fluid {
+	padding-right: 0px;
+    padding-left: 0px;
+}

@@ -1,0 +1,13 @@
+<div ng-controller="menu as m" class="container-fluid">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="row">
+    <div  ng-repeat="category in myCategories | orderBy:'name'" class="col">
+	  <a href="/category/{{ category.name }}/{{ category.catId }}">
+	    {{ category.name }}
+	  </a>
+	</div>
+  </div>
+ </nav> 
+
+</div>

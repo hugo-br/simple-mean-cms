@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+<%- include('menu'); -%>
+
+<div ng-controller="itemCtrl" class="container">
+
+
+  <div class="row">
+    
+	  {{ item.title }}
+	
+  </div>
+
+
+</div>
+
+
+<script> var clientItem = <%- JSON.stringify(item) %>;</script>
+
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/item.js"></script>
+
+<%- include('footer'); -%>

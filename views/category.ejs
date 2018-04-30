@@ -1,0 +1,41 @@
+<%- include('header'); -%>
+<%- include('menu'); -%>
+
+<div ng-controller="categoryCtrl" class="container">
+
+
+  <div class="row">
+    
+	  <h1>{{category.name}}</h1>
+	
+  </div>
+  
+  
+    <div class="row">
+      
+	  <!-- Item template -->
+	  <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="item in items">
+	    <div>
+		  <a href="/items/{{item.name}}/{{item.id}}">
+		   <h3>{{item.name}}</h3>
+		  </a>
+		</div>
+	  </div>
+	  
+    </div>
+
+
+</div>
+
+
+<script> 
+
+  var clientItem = <%- JSON.stringify(item) %>;
+  var clientCat = <%- JSON.stringify(category) %>;
+
+</script>
+
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/category.js"></script>
+
+<%- include('footer'); -%>
