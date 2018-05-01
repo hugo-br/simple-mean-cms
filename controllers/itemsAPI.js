@@ -1,4 +1,5 @@
 var Items = require('../models/items');
+var Colors = require('../models/color');
 var bodyParser = require('body-parser'); // looking at the http request
 
   module.exports = function(app){
@@ -91,6 +92,25 @@ var bodyParser = require('body-parser'); // looking at the http request
 		});
 		
 	}); // @end delete
+	
+	
+	// all available colors 
+    app.get('/api/colors/all', function(req, res){	
+ 	  var col = Colors.find({} , function(err, colors){
+		if(err) throw err;
+        res.send(colors);		
+	  });
+	}); // @end	
+	
+	// get one color 
+    app.get('/api/colors/:id', function(req, res){	
+ 	  var item = req.params.id;
+	  Colors.find({ _id: item}, function(err, it){
+		if(err) throw err;
+        res.send(it);		
+	  });
+	  
+	}); // @end	
 	
 	
 

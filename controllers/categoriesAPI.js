@@ -27,7 +27,7 @@ module.exports = function(app){
 
 // find all categories
 	app.get('/api/categories/all/active', function(req, res){	
- 	   Cats.find({}, function(err, cats) {
+ 	   Cats.find({ $or:[ {'parent':"true"}, {'parent':true} ]}, function(err, cats) {
         var catMap = [];
         var date = new Date(); // today
         cats.forEach(function(cat) {

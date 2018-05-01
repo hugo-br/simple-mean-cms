@@ -4,7 +4,8 @@
   "description": "Mean app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/input.scss public/css/output.css"
   },
   "author": "",
   "license": "ISC",
@@ -12,7 +13,11 @@
     "body-parser": "^1.18.2",
     "ejs": "^2.5.9",
     "express": "^4.16.3",
+    "font-awesome": "^4.7.0",
     "mongoose": "^5.0.16",
     "mongoose-auto-increment": "^5.0.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0"
   }
 }

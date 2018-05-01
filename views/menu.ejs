@@ -1,8 +1,12 @@
 <div ng-controller="menu as m" class="container-fluid">
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+
   <div class="row">
-    <div  ng-repeat="category in myCategories | orderBy:'name'" class="col">
+    <div class="col">
+	 <a href="/"><i class="fas fa-square"></i></a>
+	</div>
+    <div  ng-repeat="category in myCategories | orderBy:'name'" class="col ng-cloak">
 	  <a href="/category/{{ category.name }}/{{ category.catId }}">
 	    {{ category.name }}
 	  </a>

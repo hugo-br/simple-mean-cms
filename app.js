@@ -21,7 +21,7 @@ app.set('view engine', 'ejs'); // set view engine
 mongoose.connect(config.getDBconnection());
 
 // pages
-pages(app);
+pages(app, __dirname);
 
 // categories end point
 categoriesAPI(app);

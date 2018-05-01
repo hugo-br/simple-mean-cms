@@ -26,7 +26,10 @@ var catSchema = new Schema({
 	metadata : {
 		title: {type: String, default: ''},
 		keywords: {type: [], default: ''}	
-	}
+	},
+	
+	parent:{type: Boolean, default: true},
+	child: {type: Boolean, default: false}
 	
 });
 

@@ -1,0 +1,21 @@
+@import "public/css/normalize";
+@import "public/css/main";
+@import "public/css/custom";
+@import "public/css/overide";
+
+
+$badass: #ffffff;
+body { 
+  margin: 0; 
+  background-color: $badass; 
+}
+
+.item-container {
+  font-family: Helvetica;
+}
+
+.card-img-top {
+  @extend .item-container;
+  max-height: 300px;
+}
+

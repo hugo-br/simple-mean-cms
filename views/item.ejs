@@ -1,12 +1,22 @@
 <%- include('header'); -%>
 <%- include('menu'); -%>
 
-<div ng-controller="itemCtrl" class="container">
+
+
+<div ng-controller="itemCtrl" class="container ng-cloak">
+
+<div class="row">
+<%# include content block %>
+<% if (content) {  try {%>
+  <%- include(content); %>
+<% }catch(e){var z=""}} %>
+</div>
+
 
 
   <div class="row">
     
-	  {{ item.title }}
+	 <h1> {{ item.title }} </h1>
 	
   </div>
 

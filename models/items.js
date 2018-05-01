@@ -11,7 +11,21 @@ var itemSchema = new Schema({
 		start:{ type: Date, default: Date.now },
 		end:{ type: Date, default: '' }
 	},
-	category: [Number]
+	category: [Number],
+	price: { type: Number, default: 10 },
+	skus: [
+	   {
+		color: {type: Schema.Types.ObjectId, ref: 'Colors' }, 
+        text: { type: String, default: '' },	
+		desc: [
+		  {
+		   size: { type: String, default: 'Unique' },
+           qte: { type: Number, default: 0 }	  
+		  }
+		]			
+	   }
+	]
+	
 });
  
 
@@ -25,5 +39,7 @@ itemSchema.plugin(autoIncrement.plugin, {
 
 
 var Item = connection.model('Items', itemSchema);
+
+
 
 module.exports = Item;

@@ -1,26 +1,49 @@
 <%- include('header'); -%>
 <%- include('menu'); -%>
 
-<div ng-controller="categoryCtrl" class="container">
+<div ng-controller="categoryCtrl" class="container ng-cloak">
 
+<div class="row">
+<%# include content block %>
+<% if (content) {  try {%>
+  <%- include(content); %>
+<% }catch(e){var z=""}} %>
+</div>
 
   <div class="row">
     
-	  <h1>{{category.name}}</h1>
+	  <h7>{{category.name}}</h7>
 	
   </div>
   
   
-    <div class="row">
+    <div class="row item-container">
       
-	  <!-- Item template -->
+	  
+	  <div class="col d-none d-lg-block d-xl-block col-lg-2">
+	    <h7>Left Nav</h7>
+	  </div>
+	 
+     <div class="col col-lg-10 col-md-12 row">	 
+	  
+	  <%# Item template %>
 	  <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="item in items">
-	    <div>
-		  <a href="/items/{{item.name}}/{{item.id}}">
-		   <h3>{{item.name}}</h3>
-		  </a>
+	    <div class="card">
+		  <img class="card-img-top" src="/assets/images/card.jpg" alt="Card image">
+		  <div class="card-body">
+		    <a href="/items/{{item.name}}/{{item.id}}">
+			  <h3 class="card-title">{{item.name}}</h3>
+		    </a>
+			<p class="card-text">Some example text some example text</p>
+			<div class="card-text" ng-if="item.skus.length > 0" ng-repeat="sku in item.skus">
+			   <span class="item-color" style="background: {{sku.color.hex}}; height: 20px; width:20px; border-radius:50%; display: inline-block;">
+			      
+			   </span>
+			</div>
+		  </div>
 		</div>
 	  </div>
+	 </div>
 	  
     </div>
 
