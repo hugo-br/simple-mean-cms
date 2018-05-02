@@ -1,0 +1,19 @@
+Mocha
+Bluebird // dealing with promises
+
+"addsymlink": "node -e \"try{require('fs').symlinkSync('../','node_modules/app','dir')}catch(e){}\"",
+    "postinstall": "npm run addsymlink",
+    "lint": "standard",
+    "test": "NODE_ENV=test istanbul cover _mocha",
+	
+	
+	
+	Protactor // e2e tests
+	
+	
+	// token
+	npm install jwt-express --save
+	var jwt = require('jwt-express');
+    app.use(jwt.init('secret'));
+	
+	

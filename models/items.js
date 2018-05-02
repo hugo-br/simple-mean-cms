@@ -7,6 +7,7 @@ autoIncrement.initialize(connection);
  
 var itemSchema = new Schema({
     title: String,
+	description: String,
 	date : {
 		start:{ type: Date, default: Date.now },
 		end:{ type: Date, default: '' }
@@ -23,7 +24,8 @@ var itemSchema = new Schema({
            qte: { type: Number, default: 0 }	  
 		  }
 		]			
-	   }
+	   }, 
+	   
 	]
 	
 });

@@ -2,6 +2,7 @@ var bodyParser = require('body-parser'); // looking at the http request
 var Cats = require('../../models/categories');
 var Items = require('../../models/items');
 var Colors = require('../../models/color');
+var Admin = require('../../models/administrator');
 
 module.exports = function(app){
 	
@@ -94,11 +95,76 @@ module.exports = function(app){
 		
 		// sending data to database
 		Colors.create(starterColors, function(err, results){
+			if (err) throw err;
 			res.send(results);
 		});
 	
 		
-	}); // @end /api/setupCats		
-	
+	}); // @end /api/setupCats	
+
+
+    	
+	app.get('/api/setupAdmin', function(req, res){
+		
+		
+// create a user a new user		
+var testUser = new Admin({
+    firstname: 'jmar777',
+	lastName: 'test',
+    password: 'Password123',
+	email: 'admin1@test.com'
+});
+
+
+// save user to database
+  testUser.save(function(err, result) {
+    if (err) throw err;
+    }); 
+	 
+	 
+	 // fetch user and test password verification
+      Admin.findOne({ email: 'admin@test.com' }, function(err, user) {
+        
+         console.log(user);
+		 if(user) {
+		 
+		 user.comparePassword('Password123', function(err, isMatch) {
+			  if (err) throw err;
+			  console.log('Password123' + isMatch); // -> Password123: true
+		 }); 
+		 
+		 
+		 user.comparePassword('Passwordkkkk123', function(err, isMatch) {
+			  if (err) throw err;
+			  console.log('Passwordkkkk123' + isMatch); // -> Password123: true
+		 }); 
+		 
+		 
+		 }
+		 
+		 res.send(user);
+      });
+	  
+	  
+	  
+	  
+ 
+	 
+	 
+ /*  
+   // fetch user and test password verification
+      Admin.findOne({ email: 'king1@test.com' }, function(err, user) {
+         res.send(user);
+         console.log(user.password);
+		 
+		 user.comparePassword('Password123', function(err, isMatch) {
+			  if (err) throw err;
+			  console.log(isMatch); // -> Password123: true
+		 });
+		 
+      })
+ */   
+		
+	}); // @end /api/setupAdmin		
 	
 }

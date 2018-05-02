@@ -110,7 +110,13 @@ Items.
 		  } // @end for
  		      
 			  var file = _DIR + '/public/html/template/category.ejs';
-			  res.render('category', { title: cat.name, item: itemsMap, category: cat, content: file});      
+			  
+			  		if (req.session.admin){
+						res.render('category', { title: cat.name, item: itemsMap, category: cat, content: file, admin: 'true'});
+				   } else {
+						res.render('category', { title: cat.name, item: itemsMap, category: cat, content: file, admin: 'false'});  
+					}
+			                
   });
  
 		  

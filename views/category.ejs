@@ -36,7 +36,7 @@
 		    </a>
 			<p class="card-text">Some example text some example text</p>
 			<div class="card-text" ng-if="item.skus.length > 0" ng-repeat="sku in item.skus">
-			   <span class="item-color" style="background: {{sku.color.hex}}; height: 20px; width:20px; border-radius:50%; display: inline-block;">
+			   <span title="{{sku.color.text}}" class="item-color" style="background: {{sku.color.hex}}; height: 20px; width:20px; border-radius:50%; display: inline-block; float:left;">
 			      
 			   </span>
 			</div>
@@ -60,5 +60,11 @@
 
 <script src="/assets/js/app.js"></script>
 <script src="/assets/js/category.js"></script>
+
+
+<%# include content block %>
+<%try{ if (admin == true) { %>
+  <%- console.log(admin); %>
+<% }} catch(e) { console.log("user"); } %>
 
 <%- include('footer'); -%>

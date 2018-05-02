@@ -82,7 +82,7 @@ module.exports = function(app){
 	  }
 	}); // @end
 	
-	
+/*	
 	// create new category or update one existing
 	app.post('/api/categories', function(req, res){	
 	   
@@ -122,5 +122,7 @@ module.exports = function(app){
 		});
 		
 	}); // @end delete
+*/
+
 
 }
